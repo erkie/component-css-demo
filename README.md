@@ -1,22 +1,24 @@
 # Component-css-demo
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The purpose of this demo is to show an issue with https://github.com/ebryn/ember-component-css and in-repo addons.
 
-## Prerequisites
+The problem is that as of `0.2.0-beta.6` styles from [in-repo addons](https://www.youtube.com/watch?v=VYrMs1Zzpqs) are not being included.
 
-You will need the following things properly installed on your computer.
+Run the following commands and open in your browser. You should see a blue border around the second link, but alas no.
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+
+### With `0.2.0-beta.6`
+
+![graphic-1](http://i.imgur.com/XgJv1B8.png)
+
+### With `0.1.8`
+
+![graphic-2](http://i.imgur.com/EDpi7Ox.png)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone git@github.com:erkie/component-css-demo.git` this repository
+* `cd component-css-demo`
 * `npm install`
 * `bower install`
 
@@ -25,29 +27,6 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
+## Notes
 
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+`lib/my-in-repo-addon/index.js` contains what I believe to be a hack to get templates to work properly using pods. Remove the funky code in there and the `in-repo-component` component will not be visible because of a missing template.
